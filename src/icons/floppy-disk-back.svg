@@ -1,0 +1,14 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    aria-hidden="true"
+    role="img"
+    id="floppy-disk-back"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 256 256"
+    class="iconify iconify--ph"
+>
+    <path fill="currentColor" d="M208 32H91.3A15.9 15.9 0 0 0 80 36.7L36.7 80A15.9 15.9 0 0 0 32 91.3V208a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16Zm0 176H48V91.3L91.3 48H152v24H96a8 8 0 0 0 0 16h64a8 8 0 0 0 8-8V48h40Zm-80-96a36 36 0 1 0 36 36a36.1 36.1 0 0 0-36-36Zm0 56a20 20 0 1 1 20-20a20.1 20.1 0 0 1-20 20Z"></path>
+</svg>

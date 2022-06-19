@@ -1,0 +1,14 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    aria-hidden="true"
+    role="img"
+    id="chat-circle-text-fill"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 256 256"
+    class="iconify iconify--ph"
+>
+    <path fill="currentColor" d="M128 24a104 104 0 0 0-91.2 154l-8.5 29.9a16.1 16.1 0 0 0 4 15.8a15.8 15.8 0 0 0 15.7 4l30-8.5A104 104 0 1 0 128 24Zm32 128H96a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16Zm0-32H96a8 8 0 0 1 0-16h64a8 8 0 0 1 0 16Z"></path>
+</svg>

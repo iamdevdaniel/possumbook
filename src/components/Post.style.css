@@ -1,0 +1,75 @@
+@import url(/global.css);
+
+:host {
+    --default-post-width: 680px;
+    --default-img-height: 460px;
+    display: block;
+    width: var(--default-post-width);
+    background-color: var(--palette-b);
+    padding: var(--spacing-2);
+    border-radius: var(--border-radius-1);
+}
+
+:host .header {
+    font-size: var(--font-size-3);
+    font-weight: 700;
+}
+
+:host .iconify {
+    width: var(--font-size-3);
+    height: var(--font-size-3);
+}
+
+:host img {
+    width: 100%;
+    object-fit: cover;
+    height: var(--default-img-height);
+}
+
+:host > * + * {
+    margin-top: var(--spacing-1);
+}
+
+:host .controls,
+:host .controls > div {
+    display: flex;
+}
+
+:host .controls > div {
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    height: var(--spacing-5);
+}
+
+:host .controls .count { margin-left: 8px; }
+
+:host .controls > div + div { margin-left: 8px; }
+
+:host .controls > div {
+    user-select: none;
+    padding: 0 var(--spacing-2) 0 var(--spacing-2);
+    border: 2px solid var(--palette-e);
+    border-radius: var(--border-radius-0);
+    color: var(--palette-e);
+}
+
+:host .controls .save {
+   margin-left: auto;
+}
+
+:host .controls div.clicked {
+    border-color: var(--blue-0);
+}
+
+:host .controls div.clicked * {
+    color: var(--blue-0);
+}
+
+:host .controls > div.clicked svg:not([id*="fill"]) { display: none; }
+
+:host .controls > div.clicked svg[id*="fill"] { display: block; }
+
+:host .controls > div svg:not([id*="fill"]) { display: block; }
+
+:host .controls > div svg[id*="fill"] { display: none; }
