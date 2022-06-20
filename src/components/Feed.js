@@ -1,4 +1,4 @@
-import styles from './Post.style.css'
+import styles from './Feed.style.css'
 import template from './Feed.template.js'
 import { getStylesheet } from '../utils/getStylesheet.js'
 import { getAllPosts } from '../services/store.js'
@@ -8,7 +8,8 @@ export class Feed extends HTMLElement {
         super()
         this.shadow = this.attachShadow({ mode: 'open' })
         this.shadow.appendChild(template.content.cloneNode(true))
-        this.shadow.appendChild(getStylesheet(styles))
+        this.shadow.prepend(getStylesheet(styles))
+        this.container = this.shadow.querySelector('.container')
     }
 
     connectedCallback() {
@@ -26,7 +27,7 @@ export class Feed extends HTMLElement {
             newPost.setAttribute('save', post.save)
             newPost.setAttribute('src', post.image)
             newPost.setAttribute('vote', post.vote)
-            this.shadow.appendChild(newPost)
+            this.container.appendChild(newPost)
         })
     }
 }

@@ -3,11 +3,11 @@
 :host {
     --default-post-width: 680px;
     --default-img-height: 460px;
-    display: block;
+    display: inline-block;
     width: var(--default-post-width);
     background-color: var(--palette-b);
-    padding: var(--spacing-2);
     border-radius: var(--border-radius-1);
+    padding: 24px;
 }
 
 :host .header {
@@ -26,8 +26,10 @@
     height: var(--default-img-height);
 }
 
-:host > * + * {
-    margin-top: var(--spacing-1);
+:host .header,
+:host .controls {
+    box-sizing: border-box;
+    padding: var(--spacing-2) var(--spacing-1);
 }
 
 :host .controls,

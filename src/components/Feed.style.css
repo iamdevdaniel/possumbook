@@ -1,0 +1,10 @@
+@import url(/global.css);
+
+:host .container {
+    display: flex;
+    flex-direction: column;
+}
+
+:host .container > * + * {
+    margin-top: var(--spacing-6);
+}
