@@ -4,40 +4,28 @@ import { getStylesheet } from '../utils/getStylesheet.js'
 
 export class Post extends HTMLElement {
 
-    constructor() {
+    constructor(props) {
         super()
         this.shadow = this.attachShadow({ mode: 'open' })
         this.shadow.appendChild(template.content.cloneNode(true))
         this.shadow.appendChild(getStylesheet(styles))
+
         this.#defineProperties()
         this.#defineEvents()
+        this.#mapProps(props)
     }
 
-    static get observedAttributes() {
-        return ['src', 'header', 'save', 'vote']
-    }
-
-    attributeChangedCallback(controlName, _, newValue) {
-        switch(controlName) {
-            case 'src': {
-                this.image.setAttribute('src', newValue)
-                break
-            }
-            case 'header': {
-                this.header.textContent = newValue
-                break
-            }
-            case 'save': {
-                const saveActive = newValue === 'true' ? 'clicked' : null
-                this.controls.save.classList.toggle(saveActive)
-                break
-            }
-            case 'vote': {
-                const saveActive = newValue === 'true' ? 'clicked' : null
-                this.controls.vote.classList.toggle(saveActive)
-                break
-            }
-        }
+    #mapProps({
+        comments,
+        header,
+        image,
+        save,
+        vote,
+    }) {
+        this.header.textContent = header
+        this.image.setAttribute('src', image)
+        this.controls.save.classList.toggle(save ? 'clicked' : null)
+        this.controls.vote.classList.toggle(vote ? 'clicked' : null)
     }
 
     #defineProperties() {

@@ -1,0 +1,62 @@
+@import url(/global.css);
+
+:host {
+    --default-form-width: 480px;
+    background-color: var(--palette-b);
+    display: flex;
+    flex-direction: column;
+    width: var(--default-form-width);
+}
+
+:host input:focus { outline: none; }
+
+:host input {
+    background-color: var(--palette-c);
+    border: none;
+    box-shadow: none;
+    font-size: large;
+    width: 100%;
+}
+
+:host .iconify {
+    width: var(--font-size-4);
+    height: var(--font-size-4);
+}
+
+:host .controls { display: flex; }
+
+:host .controls > div {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer ;
+    user-select: none;
+    border-radius: var(--border-radius-0);
+    padding: var(--spacing-0) 0;
+}
+
+:host .controls > .cancel svg:not([id*="fill"]) * { color: var(--red-0); }
+
+:host .controls > .save svg:not([id*="fill"]) * { color: var(--blue-0); }
+
+:host .controls > .cancel {
+    color: var(--red-0);
+    border: 2px solid var(--red-0);
+}
+
+:host .controls > .save {
+    color: var(--blue-0);
+    border: 2px solid var(--blue-0);
+}
+
+:host .controls > div svg[id*="fill"] { display: none; }
+
+:host .controls > div:active svg:not([id*="fill"]) { display: none; }
+
+:host .controls > div:active svg[id*="fill"] { display: block; }
+
+:host .controls > .cancel:active { background-color: var(--red-0); }
+
+:host .controls > .save:active { background-color: var(--blue-0); }
+

@@ -5,7 +5,7 @@ import {
     chatFilled,
     save,
     saveFilled,
-} from '../icons'
+} from '../icons/'
 
 const template = document.createElement('template')
 

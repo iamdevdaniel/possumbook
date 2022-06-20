@@ -1,0 +1,14 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    aria-hidden="true"
+    role="img"
+    id="bookmark"
+    width="1em"
+    height="1em"
+    preserveAspectRatio="xMidYMid meet"
+    viewBox="0 0 256 256"
+    class="iconify iconify--ph"
+>
+    <path fill="currentColor" d="M184 32H72a16 16 0 0 0-16 16v176a8.1 8.1 0 0 0 4.1 7a7.8 7.8 0 0 0 3.9 1a7.6 7.6 0 0 0 4.2-1.2l59.8-37.4l59.8 37.4A8 8 0 0 0 200 224V48a16 16 0 0 0-16-16Zm0 177.6l-51.8-32.4a8 8 0 0 0-8.4 0L72 209.6V48h112Z"></path>
+</svg>
