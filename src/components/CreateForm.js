@@ -1,4 +1,4 @@
-import styles from './CreateForm.style.css'
+import styles from './CreateForm.styles.css'
 import template from './CreateForm.template.js'
 import { getStylesheet } from '../utils/getStylesheet.js'
 import { createPost } from '../services/store.js'

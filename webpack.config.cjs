@@ -37,11 +37,11 @@ module.exports = {
               loader: 'html-loader',
             },
             {
-                test: /(?<!\.style).css$/,
+                test: /(?<!\.styles).css$/,
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.style\.css$/,
+                test: /\.styles\.css$/,
                 use: ['css-loader']
             },
             {

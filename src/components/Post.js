@@ -1,4 +1,4 @@
-import styles from './Post.style.css'
+import styles from './Post.styles.css'
 import template from './Post.template.js'
 import { getStylesheet } from '../utils/getStylesheet.js'
 
