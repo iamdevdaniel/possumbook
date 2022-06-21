@@ -2,6 +2,7 @@ import template from './Router.template.js'
 import styles from './Router.styles.css'
 import { getStylesheet } from '../utils/styles.js'
 import { Feed } from './Feed.js'
+import { CreateForm } from './CreateForm.js'
 
 export class Router extends HTMLElement {
 
@@ -10,51 +11,64 @@ export class Router extends HTMLElement {
         this.shadow = this.attachShadow({ mode: 'open' })
         this.shadow.appendChild(template.content.cloneNode(true))
         this.shadow.appendChild(getStylesheet(styles))
-        this.shadow.appendChild(new Feed)
         
         this.#defineProperties()
-        this.#defineEvents()
         // this.#mapProps(props)
     }
 
+    connectedCallback() {
+        this.#defineEvents()
+
+        // this.container.appendChild(new CreateForm())
+        this.container.appendChild(new Feed())
+    }
+
     #defineProperties() {
+        this.container = this.shadow.querySelector('.container')
         this.routes = [
             {
-                elem: this.shadow.querySelector('.create'),
-                name: 'create',
+                content: new CreateForm(),
+                path: '/create',
+                tab: this.shadow.querySelector('.create'),
             },
             {
-                elem: this.shadow.querySelector('.feed'),
-                name: 'feed',
+                content: new Feed(),
+                tab: this.shadow.querySelector('.feed'),
+                path: '/feed',
             },
-            {
-                elem: this.shadow.querySelector('.saved'),
-                name: 'saved'
+            {   
+                content: null,
+                path: '/saved',
+                tab: this.shadow.querySelector('.saved'),
             },
         ]
     }
 
     #defineEvents() {
         this.routes.forEach(route => {
-            const { elem } = route
-            elem.addEventListener('click', (e) => this.#onSelectRoute(e, route))
+            const { tab } = route
+            tab.addEventListener('click', this.#onSelectRoute(route))
         })
     }
 
-    #onSelectRoute(e, route) {
-        e.preventDefault()
-        
-        const { elem, name } = route
-        this.#toggleRouterTabs(route)
+    #onSelectRoute = (route) => {
+
+        return (e) => {
+
+            e.preventDefault()
+
+            this.#toggleRouterTabs(route)
+        }
     }
 
     #toggleRouterTabs(selected) {
         this.routes.forEach(route => {
-            if (selected.name === route.name) {
-                route.elem.classList.toggle('active')
+            if (selected.path === route.path) {
+                const isActive = route.tab.classList.contains('active')
+                route.tab.classList.add( isActive ? null : 'active')
             }
             else {
-                route.elem.classList.remove('active')
+                route.tab.classList.remove('active')
             }
         })
     }

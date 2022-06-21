@@ -5,6 +5,7 @@ import { createPost } from '../services/store.js'
 
 export class CreateForm extends HTMLElement {
 
+
     constructor() {
         super()
         this.shadow = this.attachShadow({ mode: 'open' })
@@ -12,7 +13,14 @@ export class CreateForm extends HTMLElement {
         this.shadow.appendChild(getStylesheet(styles))
 
         this.#defineProperties()
+    }
+
+    connectedCallback() {
         this.#defineEvents()
+    }
+
+    disconnectedCallback() {
+        this.#removeEvents()
     }
 
     #defineProperties() {
@@ -27,20 +35,25 @@ export class CreateForm extends HTMLElement {
     }
 
     #defineEvents() {
-        this.controls.cancel.addEventListener('click', (e) => this.#onCancel(e, this.inputs))
-        this.controls.save.addEventListener('click', (e) => this.#onSave(e, this.inputs))
+        this.controls.cancel.addEventListener('click', this.#onCancel)
+        this.controls.save.addEventListener('click', this.#onSave)
     }
 
-    #onCancel(_, inputs) {
-        inputs.image.value = null
-        inputs.header.value = null
+    #removeEvents() {
+        this.controls.cancel.removeEventListener('click', this.#onCancel)
+        this.controls.save.removeEventListener('click', this.#onSave)
     }
 
-    async #onSave(_, inputs) {
+    #onCancel = () => {
+        this.inputs.image.value = null
+        this.inputs.header.value = null
+    }
+
+    #onSave = async () => {
 
         createPost({
-            header: inputs.header.value,
-            image: inputs.image.value,
+            header: this.inputs.header.value,
+            image: this.inputs.image.value,
             comments: [],
             save: false,
             vote: false,

@@ -22,7 +22,7 @@ const getAllPosts = async () => {
 const createPost = async (post) => {
 
     const db = getFirestore(app)
-    console.log(await addDoc(collection(db, COLLECTION.POSTS), post))
+    addDoc(collection(db, COLLECTION.POSTS), post)
 }
 
 export{
