@@ -1,0 +1,57 @@
+@import url(/global.css);
+
+:host {
+    --controls-height: 48px;
+    --controls-width: 680px;
+}
+
+.controls {
+    display: flex;
+    height: var(--controls-height);
+    width: var(--controls-width);
+    user-select: none;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+    margin-bottom: var(--spacing-2);
+}
+
+.controls .iconify {
+    width: var(--font-size-3);
+    height: var(--font-size-3);
+}
+
+.controls > div {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2);
+    height: inherit;
+    transition: background-color ease-out 200ms;
+}
+
+.controls > div + div { margin-left: var(--spacing-1); }
+
+.controls > div svg { 
+    margin-left: var(--spacing-2);
+}
+
+.controls > .active { border-bottom: 4px solid var(--blue-0); }
+
+.controls > .active,
+.controls > .active * {
+    color: var(--blue-0);
+    font-weight: 500;
+}
+
+.controls > div:not([class*="active"]):hover {
+    background-color: var(--palette-b);
+}
+
+.controls > div.active svg:not([id*="fill"]) { display: none; }
+
+.controls > div.active svg[id*="fill"] { display: block; }
+
+.controls > div svg:not([id*="fill"]) { display: block; }
+
+.controls > div svg[id*="fill"] { display: none; }

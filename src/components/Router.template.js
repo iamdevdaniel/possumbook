@@ -1,29 +1,32 @@
 import {
     bookmark,
     bookmarkFilled,
-    filePlus,
-    filePlusFill,
     house,
     houseFill,
+    plus,
+    plusFill,
 } from '../icons/'
 
 const template = document.createElement('template')
 
 template.innerHTML = /* html */ `
-    <div class="feed">
-        FEED
-        ${house}
-        ${houseFill}
+    <div class="controls">
+        <div class="feed active">
+            FEED
+            ${house}
+            ${houseFill}
+        </div>
+        <div class="saved">
+            SAVED
+            ${bookmark}
+            ${bookmarkFilled}
+        </div>
+        <div class="create">
+            CREATE
+            ${plus}
+            ${plusFill}
+        </div>
     </div>
-    <div class="saved">
-        SAVED
-        ${bookmark}
-        ${bookmarkFilled}
-    </div>
-    <div class="create">
-        CREATE
-        ${filePlus}
-        ${filePlusFill}
-    </div>
+    <div class="container"></div>
 `
 export default template
