@@ -1,6 +1,6 @@
 import styles from './Post.styles.css'
 import template from './Post.template.js'
-import { getStylesheet } from '../utils/getStylesheet.js'
+import { getStylesheet } from '../utils/styles.js'
 
 export class Post extends HTMLElement {
 

@@ -1,6 +1,6 @@
 import styles from './Feed.styles.css'
 import template from './Feed.template.js'
-import { getStylesheet } from '../utils/getStylesheet.js'
+import { getStylesheet } from '../utils/styles.js'
 import { getAllPosts } from '../services/store.js'
 import { Post } from './Post.js'
 

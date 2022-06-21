@@ -1,6 +1,6 @@
 import styles from './CreateForm.styles.css'
 import template from './CreateForm.template.js'
-import { getStylesheet } from '../utils/getStylesheet.js'
+import { getStylesheet } from '../utils/styles.js'
 import { createPost } from '../services/store.js'
 
 export class CreateForm extends HTMLElement {
