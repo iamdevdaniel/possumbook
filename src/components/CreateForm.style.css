@@ -6,6 +6,14 @@
     display: flex;
     flex-direction: column;
     width: var(--default-form-width);
+    border-radius: var(--border-radius-0);
+}
+
+:host .container > * + * { margin-top: var(--spacing-2); }
+
+:host .container {
+    box-sizing: border-box;
+    padding: var(--spacing-1);
 }
 
 :host input:focus { outline: none; }
@@ -14,7 +22,9 @@
     background-color: var(--palette-c);
     border: none;
     box-shadow: none;
-    font-size: large;
+    font-size: var(--font-size-2);
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius-0);
     width: 100%;
 }
 
@@ -23,11 +33,14 @@
     height: var(--font-size-4);
 }
 
-:host .controls { display: flex; }
+:host .controls {
+    display: flex;
+    justify-content: space-between;
+}
 
 :host .controls > div {
     display: flex;
-    flex-grow: 1;
+    flex-basis: 48%;
     align-items: center;
     justify-content: center;
     cursor: pointer ;
@@ -59,4 +72,3 @@
 :host .controls > .cancel:active { background-color: var(--red-0); }
 
 :host .controls > .save:active { background-color: var(--blue-0); }
-

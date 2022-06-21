@@ -1,9 +1,4 @@
 import { initializeApp } from 'firebase/app'
-import {
-    getFirestore,
-    collection,
-    getDocs,
-} from 'firebase/firestore'
 
 const app = initializeApp({
     apiKey: process.env.API_KEY,
@@ -14,9 +9,4 @@ const app = initializeApp({
     storageBucket: process.env.STORAGE_BUCKET,
 })
 
-export {
-    app,
-    collection,
-    getDocs,
-    getFirestore,
-}
+export { app }
