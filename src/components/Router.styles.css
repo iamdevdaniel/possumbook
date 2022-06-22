@@ -1,14 +1,9 @@
 @import url(/global.css);
 
-:host {
-    --controls-height: 48px;
-    --controls-width: 680px;
-}
-
 .controls {
     display: flex;
-    height: var(--controls-height);
-    width: var(--controls-width);
+    height: var(--component-height-2);
+    width: var(--component-width-2);
     user-select: none;
     cursor: pointer;
     border-bottom: 4px solid transparent;

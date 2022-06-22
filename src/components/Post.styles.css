@@ -1,13 +1,12 @@
 @import url(/global.css);
 
 :host {
-    --default-post-width: 680px;
     --default-img-height: 460px;
     display: inline-block;
-    width: var(--default-post-width);
+    width: var(--component-width-2);
     background-color: var(--palette-b);
     border-radius: var(--border-radius-1);
-    padding: 24px;
+    padding: var(--spacing-5);
 }
 
 :host .header {

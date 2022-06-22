@@ -1,11 +1,10 @@
 @import url(/global.css);
 
 :host {
-    --default-form-width: 480px;
     background-color: var(--palette-b);
     display: flex;
     flex-direction: column;
-    width: var(--default-form-width);
+    width: var(--component-width-1);
     border-radius: var(--border-radius-0);
 }
 

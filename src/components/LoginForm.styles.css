@@ -1,3 +1,74 @@
+@import url("/global.css");
+
 :host {
-    background-color: black;
+    width: var(--component-width-1);
+    background-color: var(--palette-b);
+    border-radius: var(--border-radius-1);
+}
+
+.container { padding: var(--spacing-2); }
+
+.container > * + * { margin-top: var(--spacing-2); }
+
+.controls,
+.inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls > div { width: 49%; }
+
+.controls > div {
+    border-bottom: 4px solid transparent;
+}
+
+.inputs { flex-direction: column; }
+
+.inputs > input { width: 100%; }
+
+.inputs > input + input {
+    margin-top: var(--spacing-1);
+}
+
+.controls > div,
+.using-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2);
+    transition: background-color ease-out 200ms;
+}
+
+input:focus { outline: none; }
+
+input {
+    background-color: var(--palette-c);
+    border: none;
+    box-shadow: none;
+    font-size: var(--font-size-2);
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius-0);
+}
+
+.controls > .active {
+    color: var(--blue-0);
+    font-weight: 500;
+    border-bottom: 4px solid var(--blue-0);
+}
+
+.controls > div:not([class*="active"]):hover {
+    background-color: var(--palette-c);
+}
+
+.controls,
+.using-google {
+    height: var(--component-height-1);
+    user-select: none;
+    cursor: pointer;
+}
+
+.using-google {
+    color: var(--white-0);
+    background-color: var(--red-0);
+    border-radius: var(--border-radius-0);
 }
