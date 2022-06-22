@@ -1,33 +1,38 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js"
-import {
-    GoogleAuthProvider,
+import { app } from './index.js'
+import { 
+    createUserWithEmailAndPassword,
     getAuth,
-    signInWithRedirect,
-    getRedirectResult,
-} from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js"
+    onAuthStateChanged,
+} from 'firebase/auth'
 
-const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
-const provider = new GoogleAuthProvider(app)
 
-login.addEventListener('click', _ => {
-    
-    signInWithRedirect(auth, provider)
- 
-    getRedirectResult(auth)
-        .then(result => {
-            
-            const credential = GoogleAuthProvider.credentialFromResult(result)
-            const token = credential.accessToken
-            const user = result.user
-        })
-        .catch(error => {
-            const errorCode = error.errorCode
-            const errorMessage = error.message
-            const email = error.email
-            const credential = GoogleAuthProvider.credentialFromError(error)
-        })
-})
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        const uid = user.uid;
+        console.log('observer: logged in', { user })
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        // ...
+    } else {
+        console.log('observer: logged out', { user })
+  }
+});
 
+const signUp = async (email, password, withGoogle = false) => {
 
+    try {
+        const response = withGoogle
+            ? null
+            : await createUserWithEmailAndPassword(auth, email, password)
 
+        return { response, ok: true }
+    }
+    catch(error) {
+        return { error, ok: false }
+    }
+}
+
+export {
+    signUp,
+}

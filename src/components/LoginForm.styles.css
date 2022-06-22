@@ -8,10 +8,11 @@
 
 .container { padding: var(--spacing-2); }
 
-.container > * + * { margin-top: var(--spacing-2); }
+.container > * + * { margin-top: var(--spacing-5); }
 
 .controls,
-.inputs {
+.inputs,
+.methods {
     display: flex;
     justify-content: space-between;
 }
@@ -31,7 +32,8 @@
 }
 
 .controls > div,
-.using-google {
+.use-google,
+.continue {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,14 +63,19 @@ input {
 }
 
 .controls,
-.using-google {
+.use-google,
+.continue {
     height: var(--component-height-1);
     user-select: none;
     cursor: pointer;
 }
 
-.using-google {
+.methods > div {
     color: var(--white-0);
-    background-color: var(--red-0);
     border-radius: var(--border-radius-0);
+    width: 49%;
 }
+
+.methods > .use-google { background-color: var(--red-0); }
+
+.methods > .continue { background-color: var(--blue-0); }
