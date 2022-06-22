@@ -16,11 +16,6 @@ template.innerHTML = /* html */ `
             ${house}
             ${houseFill}
         </div>
-        <div class="saved">
-            SAVED
-            ${bookmark}
-            ${bookmarkFilled}
-        </div>
         <div class="create">
             CREATE
             ${plus}
@@ -30,3 +25,12 @@ template.innerHTML = /* html */ `
     <div class="container"></div>
 `
 export default template
+
+/*
+<div class="saved">
+    SAVED
+    ${bookmark}
+    ${bookmarkFilled}
+</div>
+*/
+        

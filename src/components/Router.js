@@ -13,39 +13,31 @@ export class Router extends HTMLElement {
         this.shadow.appendChild(getStylesheet(styles))
         
         this.#defineProperties()
-        // this.#mapProps(props)
     }
-
+    
     connectedCallback() {
         this.#defineEvents()
-
-        // this.container.appendChild(new CreateForm())
-        this.container.appendChild(new Feed())
+        this.#onSelectRoute(this.routes.FEED)()
     }
 
-    #defineProperties() {
+    #defineProperties = () => {
         this.container = this.shadow.querySelector('.container')
-        this.routes = [
-            {
-                content: new CreateForm(),
-                path: '/create',
-                tab: this.shadow.querySelector('.create'),
-            },
-            {
-                content: new Feed(),
+        this.routes = {
+            FEED: {
+                getContent: () => new Feed(),
                 tab: this.shadow.querySelector('.feed'),
                 path: '/feed',
             },
-            {   
-                content: null,
-                path: '/saved',
-                tab: this.shadow.querySelector('.saved'),
+            CREATE_FORM: {
+                getContent: () => new CreateForm(),
+                path: '/create',
+                tab: this.shadow.querySelector('.create'),
             },
-        ]
+        }
     }
 
-    #defineEvents() {
-        this.routes.forEach(route => {
+    #defineEvents = () => {
+        Object.values(this.routes).forEach(route => {
             const { tab } = route
             tab.addEventListener('click', this.#onSelectRoute(route))
         })
@@ -54,15 +46,20 @@ export class Router extends HTMLElement {
     #onSelectRoute = (route) => {
 
         return (e) => {
+            
+            e?.preventDefault()
 
-            e.preventDefault()
+            this.#toggleTabsStyles(route)
 
-            this.#toggleRouterTabs(route)
+            window.history.pushState({}, '', route.path)
+            
+            this.container.innerHTML = null
+            this.container.appendChild(route.getContent())
         }
     }
 
-    #toggleRouterTabs(selected) {
-        this.routes.forEach(route => {
+    #toggleTabsStyles = (selected) => {
+        Object.values(this.routes).forEach(route => {
             if (selected.path === route.path) {
                 const isActive = route.tab.classList.contains('active')
                 route.tab.classList.add( isActive ? null : 'active')
